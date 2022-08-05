@@ -48,11 +48,13 @@ public class VariableExample5 {
 				   			height, 
 				   			tf);
 //		   \n : 줄바꿈(개행)을 나타내는 탈출(escape) 문자
-		   
-		   System.out.println("줄 바뀌었나요?");
+
 		   
 		   System.out.println("추가 내용");
-		   
+
+//		   새로운 코드 
+		   System.out.println("주석");
+		   String a = "내용";
 		   
 		   
 	}
