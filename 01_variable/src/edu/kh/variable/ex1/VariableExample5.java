@@ -51,6 +51,7 @@ public class VariableExample5 {
 		   
 		   System.out.println("줄 바뀌었나요?");
 		   
+		   System.out.println("추가 내용");
 		   
 		   
 		   
