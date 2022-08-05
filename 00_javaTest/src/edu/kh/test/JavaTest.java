@@ -15,6 +15,8 @@ public class JavaTest {
 		System.out.println("println은 한 줄 출력입니다.");
 		System.out.println(100 + 200 + 300 + 400);
 		
+		
+		System.out.println("git 쉽지 않죠?");
 	}
 
 }
