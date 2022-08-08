@@ -36,7 +36,9 @@ public class OperatorExample1 {
 		System.out.printf("%d %% %d = %d \n", input1, input2, (input1%input2));
 //		printf에서 '%' 문자를 출력하기 위해서는 %% 입력
 		
-		System.out.println("s\nb\nc\n");
+		
+		
+		
 		
 	}
 
