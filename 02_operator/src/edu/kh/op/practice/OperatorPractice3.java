@@ -9,11 +9,43 @@ public class OperatorPractice3 {
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.print("정수 입력 : ");
-		int input = sc.nextInt();
+		int input1 = sc.nextInt();
 		
-		String result = input > 0 ? "양수 입니다" : (input < 0 ? "음수 입니다" : "0 입니다");
+		String result = input1 > 0 ? "양수 입니다" : (input1 < 0 ? "음수 입니다" : "0 입니다");
 		
 		System.out.println(result);
+		
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		System.out.print("정수 입력 : ");
+		int input2 = sc.nextInt();
+		
+		String result1 = input2 > 0 ? "양수 입니다" : (input2 < 0 ? "음수 입니다" : "0 입니다");
+		
+		System.out.println(result1);
+		
+		
+		
+		
+		
+		
+		System.out.print("정수 입력 : ");
+		int input3 = sc.nextInt();
+		
+		String result2 = input3 > 0 ? "양수 입니다" : (input3 < 0 ? "음수 입니다" : "0 입니다");
+		
+		System.out.println(result2);
 
 	}
 
