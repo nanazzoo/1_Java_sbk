@@ -28,8 +28,7 @@ public class ConditionRun {
 //		switchEx.ex4();
 		switchEx.ex5();
 		
-		
-		
+		Scanner sc = new Scanner(System.in);
 		
 	}
 	
