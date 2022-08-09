@@ -162,44 +162,91 @@ public class ConditionPractice {
 		double attend = sc.nextInt();
 		
 		
+		System.out.print("중간고사 반영 비율(0.1~1 사이값) : ");
+		double persent1 = sc.nextDouble();
+		
+		System.out.print("기말고사 반영 비율(0.1~1 사이값) : ");
+		double persent2 = sc.nextDouble();
+		
+		System.out.print("과제 반영 비율(0.1~1 사이값) : ");
+		double persent3 = sc.nextDouble();
+		
+		System.out.print("출석 반영 비율(0.1~1 사이값) : ");
+		double persent4 = sc.nextDouble();
+		
+		if(persent1+persent2+persent3+persent4 != 1) {
+			System.out.println("반영 비율이 1을 넘겼습니다.");
+		} else {	
 //		각각의 점수를 비율에 맞게 변경
-		midterm *= 0.2; //midterm = midterm * 0.2;
-		finals *= 0.3;
-		report *= 0.3;
-		attend = (attend/20.0*100) * 0.2;
-		double sum = midterm + finals + report + attend;
-		
-		
-		if (attend <= 14) {
-			System.out.printf("=============== 결과 ================\n"
-					+ "중간 고사 점수(20) : %.1f \n"
-					+ "기말 고사 점수(30) : %.1f \n"
-					+ "과제 점수     (30) : %.1f \n"
-					+ "출석 횟수     (20) : %.1f \n"
-					+ "총점 : %.1f \n"
-					+ "Fail [출석 횟수 부족 (%.0f/20)] \n",
-					midterm, finals, report, attend, sum, attend);
-		} else if (sum < 70) {
-			System.out.printf("=============== 결과 ================\n"
-					+ "중간 고사 점수(20) : %.1f \n"
-					+ "기말 고사 점수(30) : %.1f \n"
-					+ "과제 점수     (30) : %.1f \n"
-					+ "출석 횟수     (20) : %.1f \n"
-					+ "총점 : %.1f \n"
-					+ "Fail [점수 미달] \n",
-					midterm, finals, report, attend, sum);
-		}else {
-			System.out.printf("=============== 결과 ================\n"
-					+ "중간 고사 점수(20) : %.1f \n"
-					+ "기말 고사 점수(30) : %.1f \n"
-					+ "과제 점수     (30) : %.1f \n"
-					+ "출석 횟수     (20) : %.1f \n"
-					
+			midterm *= persent1; //midterm = midterm * 0.2;
+			finals *= persent2;
+			report *= persent3;
+			attend = (attend/20.0*100) * persent4;
+			double sum = midterm + finals + report + attend;		
+			
+			if (attend <= 14) {
+				System.out.printf("\n=============== 결과 ================\n"
+						+ "중간 고사 점수(20) : %.1f \n"
+						+ "기말 고사 점수(30) : %.1f \n"
+						+ "과제 점수     (30) : %.1f \n"
+						+ "출석 횟수     (20) : %.1f \n"
+						+ "총점 : %.1f \n"
+						+ "Fail [출석 횟수 부족 (%.0f/20)] \n",
+						midterm, finals, report, attend, sum, attend);
+			} else if (sum < 70) {
+				System.out.printf("\n=============== 결과 ================\n"
+						+ "중간 고사 점수(20) : %.1f \n"
+						+ "기말 고사 점수(30) : %.1f \n"
+						+ "과제 점수     (30) : %.1f \n"
+						+ "출석 횟수     (20) : %.1f \n"
+						+ "총점 : %.1f \n"
+						+ "Fail [점수 미달] \n",
+						midterm, finals, report, attend, sum);
+			}else {
+				System.out.printf("\n=============== 결과 ================\n"
+						+ "중간 고사 점수(20) : %.1f \n"
+						+ "기말 고사 점수(30) : %.1f \n"
+						+ "과제 점수     (30) : %.1f \n"
+						+ "출석 횟수     (20) : %.1f \n"
+						
 					+ "총점 : %.1f \n"
 					+ "PASS \n",
 					midterm, finals, report, attend, sum);
+			}
+		
 		}
 		
 	}
 
+	
+	public void practice6() {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("1~12 사이의 정수 입력 : ");
+		int month = sc.nextInt();
+		
+		int result;
+		
+		switch(month) {
+		case 1: case 3: case 5: case 7: case 8: case 10: case 12 :
+			result = 31;
+			break;
+		case 4: case 6: case 9: case 11:
+			result = 30;			
+			break;
+		case 2:
+			result = 28;
+			
+		default : result = -1;
+		}
+		
+		if(result == -1) {
+			System.out.printf("%d월은 잘못 입력된 달입니다.", month);
+		} else {
+			System.out.printf("%d월은 %s일 까지 있습니다.", month, result);			
+		}
+		
+		
+	}
 }
