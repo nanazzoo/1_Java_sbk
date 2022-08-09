@@ -70,8 +70,7 @@ public class ConditionPractice {
 		
 		
 	}
-	
-	
+
 	
 	
 	
@@ -107,7 +106,6 @@ public class ConditionPractice {
 	
 	
 	
-	
 	public void practice4() {
 		
 		Scanner sc = new Scanner(System.in);
@@ -137,9 +135,6 @@ public class ConditionPractice {
 		System.out.printf("BMI 지수 : %f \n%s \n",bmi, result);
 		
 	}
-	
-	
-	
 	
 	
 	
