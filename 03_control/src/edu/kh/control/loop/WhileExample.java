@@ -207,9 +207,9 @@ public class WhileExample {
 		
 		int sum=0;
 		
-		int input=0; 
+		int input; 
 		
-		 do {		
+		do {		
 			System.out.print("정수 입력: ");
 			input = sc.nextInt();	
 			
@@ -219,8 +219,9 @@ public class WhileExample {
 			
 		} while(input != 0);
 		
-		
 	}
+	
+	
 	
 	
 	
