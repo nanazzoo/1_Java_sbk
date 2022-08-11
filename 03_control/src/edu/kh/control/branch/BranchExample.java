@@ -231,10 +231,7 @@ public class BranchExample {
 		int win = 0;
 		int lose = 0;
 		int draw = 0;
-		int count=1;
-		
-		String pc = "";
-		
+		int count = 1;		
 		
 		
 		System.out.print("몇판? : ");
@@ -252,100 +249,58 @@ public class BranchExample {
 			
 			
 			if(rps == 0 ) { //가위
-				
-				pc = "가위";
-				
-				if(input.equals("가위")) {
-					
-					System.out.printf("컴퓨터는 [%s]를 선택했습니다. \n",pc);
+				System.out.println("컴퓨터는 [가위]를 선택했습니다.");
+								
+				if (input.equals("가위")) {
 					System.out.println("비겼습니다.");
-					draw+=1;
-					System.out.printf("현재 기록: %d승 %d무 %d패 \n", win, draw, lose);
-					
+					draw+=1;					
 				} else if (input.equals("바위")) {
-					
-					System.out.printf("컴퓨터는 [%s]를 선택했습니다. \n",pc);
 					System.out.println("플레이어 승!");
 					win+=1;
-					System.out.printf("현재 기록: %d승 %d무 %d패 \n", win, draw, lose);
-					
 				} else {
-					
-					System.out.printf("컴퓨터는 [%s]를 선택했습니다. \n",pc);
 					System.out.println("졌습니다ㅜㅜ");
-					lose+=1;
-					System.out.printf("현재 기록: %d승 %d무 %d패 \n", win, draw, lose);
-					
+					lose+=1;	
 				} 
-				
+				System.out.printf("현재 기록: %d승 %d무 %d패 \n", win, draw, lose);
 				System.out.println();
 
 			} else if (rps == 1 ) { //바위
+				System.out.println("컴퓨터는 [바위]를 선택했습니다.");
 				
-				pc = "바위";
-				
-				if(input.equals("가위")) {
-					
-					System.out.printf("컴퓨터는 [%s]를 선택했습니다. \n",pc);
+				if (input.equals("가위")) {				
 					System.out.println("졌습니다ㅜㅜ");
-					lose+=1;
-					System.out.printf("현재 기록: %d승 %d무 %d패 \n", win, draw, lose);
-					
-				} else if (input.equals("바위")) {
-					
-					System.out.printf("컴퓨터는 [%s]를 선택했습니다. \n",pc);
+					lose+=1;					
+				} else if (input.equals("바위")) {					
 					System.out.println("비겼습니다.");
-					draw+=1;
-					System.out.printf("현재 기록: %d승 %d무 %d패 \n", win, draw, lose);
-					
-				} else {
-					
-					System.out.printf("컴퓨터는 [%s]를 선택했습니다. \n",pc);
+					draw+=1;					
+				} else {					
 					System.out.println("플레이어 승!");
-					win+=1;
-					System.out.printf("현재 기록: %d승 %d무 %d패 \n", win, draw, lose);	
-					
-					}
-				
+					win+=1;					
+					}				
+				System.out.printf("현재 기록: %d승 %d무 %d패 \n", win, draw, lose);	
 				System.out.println();
 
 			} else { //보
+				System.out.println("컴퓨터는 [보]를 선택했습니다.");
 				
-				pc="보";
-				
-				if(input.equals("가위")) {
-					System.out.printf("컴퓨터는 [%s]를 선택했습니다. \n",pc);
+				if (input.equals("가위")) {
 					System.out.println("플레이어 승!");
-					win+=1;
-					System.out.printf("현재 기록: %d승 %d무 %d패 \n", win, draw, lose);
-					
-				} else if (input.equals("바위")) {
-					
-					System.out.printf("현재 기록: %d승 %d무 %d패 \n", win, draw, lose);
-					System.out.printf("컴퓨터는 [%s]를 선택했습니다. \n",pc);
+					win+=1;					
+				} else if (input.equals("바위")) {					
 					System.out.println("졌습니다ㅜㅜ");
-					lose+=1;
-					System.out.printf("현재 기록: %d승 %d무 %d패 \n", win, draw, lose);
-					
-				} else {
-					
-					System.out.printf("컴퓨터는 [%s]를 선택했습니다. \n",pc);
+					lose+=1;					
+				} else {					
 					System.out.println("비겼습니다.");
-					draw+=1;
-					System.out.printf("현재 기록: %d승 %d무 %d패 \n", win, draw, lose);	
-					
+					draw+=1;					
 				}
-				
-				System.out.println();
-				
+				System.out.printf("현재 기록: %d승 %d무 %d패 \n", win, draw, lose);					
+				System.out.println();				
 			}
 			game--;
 			count++;		
 		}
-
+		
 	}
-	
-	
 	
 	
 	
