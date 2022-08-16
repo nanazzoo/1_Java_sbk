@@ -18,6 +18,7 @@ public class BasicRun {
 //		System.out.println("비밀번호: " + 신보경.password);
 //		The field SBK.password is not visible
 		
+//		비밀번호를 볼 수 있는 기능을 호출 == 간접 접근 방법
 		신보경.showPassword();
 		
 		
