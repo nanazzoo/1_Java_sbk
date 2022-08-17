@@ -448,15 +448,15 @@ public class ArrayExample {
 //		원본 데이터를 모두 복사
 		
 //		1. for문을 이용한 방법 (index가 동일하다는 특징 이용)
-		for(int i=0; i<arr.length; i++) {
-			copyArr[i] = arr[i];
-		}
+//		for(int i=0; i<arr.length; i++) {
+//			copyArr[i] = arr[i];
+//		}
 		
 		
 // 		2. System.arraycopy(원본배열, 원본 복사 시작 인덱스, 
 //         복사배열, 복사배열의 삽입 시작 인덱스, 복사길이);
 		
-//		System.arraycopy(arr, 0, copyArr, 0, arr.length);
+		System.arraycopy(arr, 0, copyArr, 0, arr.length);
 		
 		
 //		3. 복사할 배열 변수 = Arrays.copyOf(원본배열, 복사할 길이)
