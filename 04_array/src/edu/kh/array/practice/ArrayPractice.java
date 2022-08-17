@@ -347,12 +347,11 @@ public class ArrayPractice {
 		
 		for(int i=0; i<arr.length; i++) {
 			
-			arr[i] = str.charAt(i);
-				
 			for(int x=0; x<i; x++) {
 				if(arr[i] == str.charAt(x)) {
-					
+					break;
 				}
+				arr[i] = str.charAt(i);
 			}
 		}
 			
@@ -498,8 +497,87 @@ public class ArrayPractice {
 		}
 		
 	}
+	
+	
+	
+	
+	
+	public void practice18() {
+		
+		int[][] arr = new int[4][4];
+		
+		
+		for(int row=0; row<arr.length-1; row++) {
+			
+			for(int col=0; col<arr[row].length-1; col++) {
+				
+				int ran = (int)(Math.random() * 10 +1); 
+				arr[row][col] = ran;
+				
+				arr[row][arr[row].length-1] += ran; 
+				
+				arr[arr.length-1][col] += ran; 
+				
+				arr[arr.length-1][arr[row].length-1] += ran; 
+				
+			}
+			
+		}
+		
+		
+		for(int row=0; row<arr.length; row++) {			
+			for(int col=0; col<arr[row].length; col++) {
+				System.out.printf("%3d", arr[row][col]);
+			}
+			System.out.println();
+		}
+		
+		
 		
 	}
+	
+	
+	
+	public void practice19( ) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int row;
+		int col;
+		
+		while(true) {
+			System.out.print("행 크기 : ");
+			row = sc.nextInt();
+			
+			System.out.print("열 크기 : ");
+			col = sc.nextInt();
+			
+			for(int i=1; i<=10; i++) {
+				
+				if(row>10 || row<1 || col>10 || col<1) {
+					System.out.println("반드시 1~10 사이의 정수를 입력해야 합니다.");
+					continue;
+				} 
+				
+			}
+			char[][] arr = new char[row][col]; 
+			
+			for(int i=0; i<arr[row].length; i++) {
+				
+				for(int x=0; x<arr[col].length; x++) {
+					
+					arr[i][x] = (char)(65+i);
+					
+				}
+				
+			}
+			System.out.println(Arrays.toString(arr));
+		}
+		
+	}
+	
+		
+}
 	
 
 
