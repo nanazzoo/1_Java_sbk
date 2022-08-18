@@ -335,28 +335,44 @@ public class ArrayPractice {
 	
 	public void practice13() {
 //		모르겠다
+		/*
+		 * 문자열.length : 문자열의 길이
+		 * 
+		 * 문자열.charAt(인덱스번호) : 문자열에서 해당 인덱스 번째 문자 하나를 얻어옴
+		 * 
+		 * */
+		
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.print("문자열 : ");
 		String str = sc.next();
 		
-		
-
-		
 		char[] arr = new char[str.length()];
+		char temp;
+		boolean flag = true;
+		int count = 0;
 		
 		for(int i=0; i<arr.length; i++) {
 			
-			for(int x=0; x<i; x++) {
-				if(arr[i] == str.charAt(x)) {
-					break;
-				}
-				arr[i] = str.charAt(i);
+			arr[i] = str.charAt(count);
+			
+			for(int x=0; x<=i; x++) {
+				if(arr[i] == (char)str.charAt(count)) {
+					i--;
+				} 			
+				break;
 			}
+			
+			count++;
 		}
 			
+		
 		for(int i=0; i<arr.length; i++) {
-			System.out.print(arr[i] + " ");
+			if(i==arr.length-1) {
+				System.out.print(arr[i]);	
+			} else {
+				System.out.print(arr[i] + ", ");	
+			}
 		}
 	}
 	
@@ -643,7 +659,24 @@ public class ArrayPractice {
 	
 	public void practice20() {
 		
+		Scanner sc = new Scanner(System.in);
 		
+		System.out.print("행의 크기: ");
+		int rowSize = sc.nextInt();
+		
+		int[][] arr = new int[rowSize][];
+		
+		for(int i=0; i<arr.length; i++) {
+			
+			for(int x=0; x<arr[i].length; x++) {
+				
+				
+			}
+			
+		}
+				
+				
+
 		
 	}
 	

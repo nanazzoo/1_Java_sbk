@@ -25,7 +25,6 @@ public class ConstructorRun {
 		Member member7 = new Member("bboya0518", "password321", "01043391234", 25);
 		
 		
-		
 		System.out.println("프로그램 종료");
 		
 		
