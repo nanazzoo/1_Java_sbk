@@ -363,7 +363,6 @@ public class ArrayPractice {
 	
 	
 	public void practice14() {
-//		구현 실패
 		Scanner sc = new Scanner(System.in);
 		
 		String[] arr1 = null;
@@ -389,10 +388,15 @@ public class ArrayPractice {
 		
 		
 		if(answer == 'N' || answer == 'n') {
+			System.out.print("[ ");
 			for(int i=0; i<arr1.length; i++) {
-				System.out.print(arr1[i] +" ");
-				
+				if(i==arr1.length-1) {
+					System.out.print(arr1[i] +" ");	
+				} else {
+					System.out.print(arr1[i] +", ");
+				}
 			}
+			System.out.print("]");
 		} else {
 			System.out.print("더 입력하고 싶은 개수: ");
 			copyLength = sc.nextInt();
@@ -414,10 +418,15 @@ public class ArrayPractice {
 			
 			
 			if(answer2 == 'N' || answer2 == 'n') {
-				for(int i=0; i<arr1.length; i++) {
-					System.out.print(arr2[i] +" ");
-					
+				System.out.print("[ ");
+				for(int i=0; i<arr2.length; i++) {
+					if(i==arr2.length-1) {
+						System.out.print(arr2[i] +" ");	
+					} else {
+						System.out.print(arr2[i] +", ");
+					}
 				}
+				System.out.print("]");
 			} else {
 				System.out.print("더 입력하고 싶은 개수: ");
 				copyLength = sc.nextInt();
@@ -425,7 +434,7 @@ public class ArrayPractice {
 				
 				arr3 = new String[arr2.length+copyLength];
 				
-				for(int i=0; i<arr1.length; i++) {
+				for(int i=0; i<arr2.length; i++) {
 					arr3[i] = arr2[i];
 				}
 				
@@ -433,23 +442,19 @@ public class ArrayPractice {
 					System.out.print((i+1) + "번째 문자열: ");
 					arr3[i] = sc.nextLine();
 				}
-		}
-		
-		
-		
-		
-			
-			
-		}
-		System.out.print("[ ");
-		for(int i=0; i<arr3.length; i++) {
-			if(i==arr3.length-1) {
-				System.out.print(arr3[i] +" ");	
-			} else {
-				System.out.print(arr3[i] +", ");
+				
+				System.out.print("[ ");
+				for(int i=0; i<arr3.length; i++) {
+					if(i==arr3.length-1) {
+						System.out.print(arr3[i] +" ");	
+					} else {
+						System.out.print(arr3[i] +", ");
+					}
+				}
+				System.out.print("]");
 			}
+			
 		}
-		System.out.print("]");
 	}
 	
 	
