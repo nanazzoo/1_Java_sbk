@@ -366,44 +366,90 @@ public class ArrayPractice {
 //		구현 실패
 		Scanner sc = new Scanner(System.in);
 		
+		String[] arr1 = null;
+		String[] arr2 = null;
+		String[] arr3 = null;
+		
+		int copyLength;
+		
 		System.out.print("배열의 크기를 입력하세요: ");
 		int arrLength = sc.nextInt();
+		sc.nextLine();
 		
-		String[] arr1 = new String[arrLength];
+		arr1 = new String[arrLength];
 		
 		for(int i=0; i<arr1.length; i++) {
-			
-			System.out.print((i+1) + "번째 문자열 : ");
-			arr1[i] = sc.next();
-			
+			System.out.print(i+1 + "번째 문자열: ");
+			arr1[i] = sc.nextLine();
 		}
 		
-		String[] arr2 = null;
 		
-		while(true) {
+		System.out.print("더 값을 입력하시겠습니까?(Y/N): ");
+		char answer = sc.next().charAt(0);
+		
+		
+		if(answer == 'N' || answer == 'n') {
+			for(int i=0; i<arr1.length; i++) {
+				System.out.print(arr1[i] +" ");
+				
+			}
+		} else {
+			System.out.print("더 입력하고 싶은 개수: ");
+			copyLength = sc.nextInt();
+			sc.nextLine();
+				
+			arr2 = new String[arr1.length+copyLength];
+				
+			for(int i=0; i<arr1.length; i++) {
+				arr2[i] = arr1[i];
+			}
 			
-			System.out.print("더 값을 입력하시겠습니까?(Y/N) : ");
-			String answer = sc.next();	
+			for(int i=arr1.length; i<arr2.length; i++) {
+				System.out.print((i+1) + "번째 문자열: ");
+				arr2[i] = sc.nextLine();
+			}
 			
-			if(answer.equals("n") || answer.equals("N")) {
-				System.out.println(Arrays.asList(arr2));
-				break;
-			} else {
-				System.out.print("더 입력하고 싶은 개수 : ");
-				int num = sc.nextInt();
-				
-				arr2 = new String[arr1.length+num];
-				
-				System.arraycopy(arr1, 0, arr2, 0, arr1.length);
-				
-				for(int i=arr1.length; i<arr2.length; i++) {
+			System.out.print("더 값을 입력하시겠습니까?(Y/N): ");
+			char answer2 = sc.next().charAt(0);
+			
+			
+			if(answer2 == 'N' || answer2 == 'n') {
+				for(int i=0; i<arr1.length; i++) {
+					System.out.print(arr2[i] +" ");
 					
-					System.out.print((i+1) + "번째 문자열 : ");
-					arr2[i] = sc.next();		
 				}
+			} else {
+				System.out.print("더 입력하고 싶은 개수: ");
+				copyLength = sc.nextInt();
+				sc.nextLine();
+				
+				arr3 = new String[arr2.length+copyLength];
+				
+				for(int i=0; i<arr1.length; i++) {
+					arr3[i] = arr2[i];
+				}
+				
+				for(int i=arr2.length; i<arr3.length; i++) {
+					System.out.print((i+1) + "번째 문자열: ");
+					arr3[i] = sc.nextLine();
+				}
+		}
+		
+		
+		
+		
+			
+			
+		}
+		System.out.print("[ ");
+		for(int i=0; i<arr3.length; i++) {
+			if(i==arr3.length-1) {
+				System.out.print(arr3[i] +" ");	
+			} else {
+				System.out.print(arr3[i] +", ");
 			}
 		}
-		
+		System.out.print("]");
 	}
 	
 	
@@ -542,41 +588,71 @@ public class ArrayPractice {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		int row;
-		int col;
-		
 		while(true) {
-			System.out.print("행 크기 : ");
-			row = sc.nextInt();
+			System.out.print("행 크기: ");
+			int rowSize = sc.nextInt();
 			
-			System.out.print("열 크기 : ");
-			col = sc.nextInt();
+			System.out.print("열 크기: ");
+			int colSize = sc.nextInt();
 			
-			for(int i=1; i<=10; i++) {
-				
-				if(row>10 || row<1 || col>10 || col<1) {
-					System.out.println("반드시 1~10 사이의 정수를 입력해야 합니다.");
-					continue;
-				} 
-				
+			if(rowSize>10 || rowSize<1 || colSize>10 || colSize<1) {
+				System.out.println("반드시 1~10 사이의 정수를 입력해야 합니다.");
+				continue;
 			}
-			char[][] arr = new char[row][col]; 
+		
 			
-			for(int i=0; i<arr[row].length; i++) {
+			char[][] arr = new char[rowSize][colSize];
+			
+			char a = 65;
+			
+			for(int i=0; i<arr.length; i++) {
 				
-				for(int x=0; x<arr[col].length; x++) {
+				for(int x=0; x<arr[i].length; x++) {
 					
-					arr[i][x] = (char)(65+i);
+					int ran = (int)(Math.random()* 25 +1);
+					
+					arr[i][x] = (char) (a+ran);
+					
+					
+					
 					
 				}
 				
 			}
-			System.out.println(Arrays.toString(arr));
+		
+			for(int i=0; i<arr.length; i++) {
+				
+				for(int x=0; x<arr[i].length; x++) {
+					System.out.print(arr[i][x] + " ");
+					if(x==arr[i].length-1) {
+						System.out.println();
+					}
+				}
+			}
+			break;
 		}
+	
+	}	
+	
+	
+	
+	public void practice20() {
+		
+		
 		
 	}
 	
-		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
 	
 
