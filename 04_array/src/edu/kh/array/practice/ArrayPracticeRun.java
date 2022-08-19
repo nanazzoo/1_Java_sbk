@@ -29,8 +29,11 @@ public class ArrayPracticeRun {
 //		ap.practice21();
 //		ap.practice22();
 //		ap.practice23();
-		ap.practice24();
+//		ap.practice24();
 		
+		BingoPractice bingo = new BingoPractice();
+		
+		bingo.bingo();
 		
 		
 	}
