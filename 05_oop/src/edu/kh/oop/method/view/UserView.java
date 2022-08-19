@@ -12,7 +12,14 @@ public class UserView {
 	private UserService service = new UserService();
 	
 //	User 참조 변수 선언(아직 참조하는 객체가 없다)
-	private User user = null;
+	private User user = null; //회원 가입 정보를 담고있는 User객체 참조
+	
+//	로그인 한 User 객체의 주소를 참조할 변수
+	private User loginUser = null; //
+//	null인 경우 == 로그인 X
+//	null이 아닌 경우 == 로그인 O
+	
+	
 
 	
 //	메뉴 출력 기능(메서드)
@@ -36,11 +43,11 @@ public class UserView {
 			System.out.println();
 			
 			switch(input) {
-			case 1 :  break;
-			case 2 :  break;
-			case 3 :  break;
-			case 4 :  break;
-			case 5 :  break;
+			case 1 : this.signUp(); break;
+			case 2 : this.login(); break;
+			case 3 : logout(); break;
+			case 4 : printUser(); break;
+			case 5 : updateUser(); break;
 			case 0 : System.out.println("프로그램을 종료합니다 ..."); break;
 			default : System.out.println("잘못 입력하셨습니다.");
 			
@@ -74,7 +81,108 @@ public class UserView {
 		char gender = sc.next().charAt(0);
 		
 //		회원 가입 서비스 호출
+		user = service.signUp(id, pw, name, age, gender); // User 객체의 주소 반환
+//		 --> 필드에 존재하는 user 참조 변수에 반환된 User 객체의 주소를 저장
+
+		System.out.println("<회원 가입 완료>");
 		
+	}
+	
+	
+	
+	
+//	로그인 화면
+	public void login() {
+		System.out.println("[로그인]");
+		
+//		로그인이 되어있지 않은 경우 --> 아이디, 비밀번호 입력 받기
+		
+		if(loginUser != null) {
+			System.out.println("이미 접속되어 있습니다.");
+			
+		} else { //loginUser == null (로그인 X)
+			System.out.print("아이디: ");
+			String id = sc.next();
+			
+			System.out.print("비밀번호: ");
+			String pw = sc.next();
+			
+			int result = service.login(id, pw, user); //로그인 서비스 호출
+			
+			if(result == -1) {
+				System.out.println("회원 가입 후 시도해주세요.");
+			} else if(result == 0) {
+				System.out.println("아이디 또는 비밀번호가 일치하지 않습니다.");
+			} else { // 1
+				System.out.println("<로그인 성공>");
+				loginUser = user; //user 변수가 참조하는 객체의 주소를 
+//									loginUser에 대입(얕은 복사)
+			}
+		}
+	}
+	
+	
+	public void logout() {
+		
+		if(loginUser != null) { //로그인이 되어 있을 경우
+			loginUser = null; // 로그아웃
+			System.out.println("<로그아웃 되었습니다.>");
+		} else { // 로그인이 안된 경우
+			System.out.println("로그인 후 이용해주세요.");
+		}
+		
+	}
+	
+	
+//	로그인 회원 정보 출력
+	public void printUser() {
+		System.out.println("[회원 정보 출력]");
+		if(loginUser != null) { // 로그인 O
+			
+//			loginUser가 참조하는 객체에서 getter를 이용해 필드 값을 얻어와 출력
+			System.out.println("아이디: " + loginUser.getUserId());
+			System.out.println("이름: " + loginUser.getUserName());
+			System.out.println("나이: " + loginUser.getUserAge() + "세");
+			
+			String gender = null;
+			
+			if(loginUser.getUserGender() == 'M') {
+				gender = "남성";
+			} else {
+				gender = "여성";
+			}
+			System.out.println("성별: " + gender);
+			
+		} else { // 로그인 X
+			System.out.println("로그인 후 이용해주세요.");
+			
+		}
+		
+		
+	}
+	
+//	회원 정보 수정
+	public void updateUser() {
+		System.out.println("[회원 정보 수정]");
+		
+		if(loginUser != null) {
+			System.out.print("수정할 이름: ");
+			String name = sc.next();
+			
+			System.out.print("수정할 나이: ");
+			int age = sc.nextInt();
+			
+			System.out.print("수정할 성별(M/F): ");
+			char gender = sc.next().charAt(0);
+			
+			service.updateUser(name, age, gender, loginUser);
+			
+			System.out.println("<회원 정보가 수정되었습니다.>");
+			
+		} else {
+			System.out.println("로그인 후 이용해주세요.");
+			
+		}
 		
 		
 	}
