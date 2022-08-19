@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class ArrayPractice {
+	Scanner sc = new Scanner(System.in);
+
 	
 	public void practice1() {
 		
@@ -334,7 +336,7 @@ public class ArrayPractice {
 	
 	
 	public void practice13() {
-//		모르겠다
+//		신충영님꺼 참조
 		/*
 		 * 문자열.length : 문자열의 길이
 		 * 
@@ -344,36 +346,44 @@ public class ArrayPractice {
 		
 		Scanner sc = new Scanner(System.in);
 		
+//		문자열 입력
 		System.out.print("문자열 : ");
 		String str = sc.next();
 		
+//		배열 생성
 		char[] arr = new char[str.length()];
-		char temp;
-		boolean flag = true;
+
+//		문자열의 내용을 문자 배열로 옮기기
+		for(int i=0; i<str.length(); i++) {
+			arr[i] = str.charAt(i);
+		}
+		
+		
+//		변수 선언부
 		int count = 0;
 		
-		for(int i=0; i<arr.length; i++) {
-			
-			arr[i] = str.charAt(count);
-			
-			for(int x=0; x<=i; x++) {
-				if(arr[i] == (char)str.charAt(count)) {
-					i--;
-				} 			
-				break;
-			}
-			
-			count++;
-		}
-			
 		
+//		중복 제거 후 배열에 대입
 		for(int i=0; i<arr.length; i++) {
-			if(i==arr.length-1) {
-				System.out.print(arr[i]);	
-			} else {
-				System.out.print(arr[i] + ", ");	
+			boolean flag = true;	
+			for(int x=0; x<i; x++) {
+				if(arr[i] == arr[x]) {
+					flag = false;
+					break;
+				} 			
+			}
+			if(flag) {
+				count++;
+				System.out.print(arr[i]);
+				if(i != arr.length-1) {
+					System.out.print(", ");
+				}
 			}
 		}
+			
+//		출력 구문
+		System.out.println();
+		System.out.println("문자 개수: " + count);
 	}
 	
 	
@@ -381,6 +391,7 @@ public class ArrayPractice {
 	public void practice14() {
 		Scanner sc = new Scanner(System.in);
 		
+
 		String[] arr1 = null;
 		String[] arr2 = null;
 		String[] arr3 = null;
@@ -479,7 +490,9 @@ public class ArrayPractice {
 	
 	public void practice15() {
 		
+		
 		int[][] arr = new int[3][3];
+		
 		
 		for(int i=0; i<arr.length; i++ ) {
 			
@@ -664,19 +677,248 @@ public class ArrayPractice {
 		System.out.print("행의 크기: ");
 		int rowSize = sc.nextInt();
 		
-		int[][] arr = new int[rowSize][];
+		char[][] arr = new char[rowSize][];
+		
+		char count = 97; 
+		
 		
 		for(int i=0; i<arr.length; i++) {
+				System.out.print(i+"열의 크기: ");
+				int colSize = sc.nextInt();
+				
+				arr[i] = new char[colSize];
+		}
+		
+		for(int i=0; i<arr.length; i++) {
+			for(int x=0; x<arr[i].length; x++) {	
+				arr[i][x] = count;
+				count++;
+				System.out.print(arr[i][x]+ " ");
+				if(x==arr[i].length-1) {
+					System.out.println();
+				}
+			}			
+		}	
+		
+	}
+	
+	
+	
+	public void practice21() {
 			
+		String[] students = {"강건강", "남나나", "도대담", "류라라", "문미미", "박보배",
+				"송성실", "윤예의", "진재주", "차천축", "피풍표", "홍하하"};
+		
+		String[][] arr1 = new String[3][2];
+		String[][] arr2 = new String[3][2];
+		
+		int count = 0; 
+		System.out.println("== 1분단 ==");
+		for(int i=0; i<arr1.length; i++) {
+			for(int x=0; x<arr1[i].length; x++) {
+				arr1[i][x] = students[count];
+				count++;
+				System.out.print(arr1[i][x] +"  ");
+				
+				if(x==arr1[i].length-1) {
+					System.out.println();
+				}
+			}
+		}
+		System.out.println("== 2분단 ==");
+		
+		for(int i=0; i<arr1.length; i++) {
+			for(int x=0; x<arr1[i].length; x++) {
+				arr2[i][x] = students[count];
+				count++;
+				System.out.print(arr2[i][x] +"  ");
+				
+				if(x==arr2[i].length-1) {
+					System.out.println();
+				}
+			}
+		}
+	
+	}
+	
+		
+	public void practice22() {
+		
+		
+		String[] students = {"강건강", "남나나", "도대담", "류라라", "문미미", "박보배",
+				"송성실", "윤예의", "진재주", "차천축", "피풍표", "홍하하"};
+		
+		
+		String[][] arr1 = new String[3][2];
+		String[][] arr2 = new String[3][2];
+		
+		
+		int count = 0; 
+		boolean flag = true;
+		String col = "";
+		
+		
+		
+		System.out.println("== 1분단 ==");
+		for(int i=0; i<arr1.length; i++) {
+			for(int x=0; x<arr1[i].length; x++) {
+				arr1[i][x] = students[count];
+				count++;
+				System.out.print(arr1[i][x] +"  ");
+				
+				if(x==arr1[i].length-1) {
+					System.out.println();
+				}
+			}
+		}
+		System.out.println("== 2분단 ==");
+		
+		for(int i=0; i<arr1.length; i++) {
+			for(int x=0; x<arr1[i].length; x++) {
+				arr2[i][x] = students[count];
+				count++;
+				System.out.print(arr2[i][x] +"  ");
+				
+				if(x==arr2[i].length-1) {
+					System.out.println();
+				}
+			}
+		}
+		
+		
+		System.out.println("=========================");
+		System.out.print("검색할 학생 이름을 입력하세요: ");
+		String name = sc.next();
+		
+		
+		for(int i=0; i<arr1.length; i++) {
+			for(int x=0; x<arr1[i].length; x++) {
+				if(arr1[i][x].equals(name)) {
+					if(x==0) {
+						col = "왼쪽";
+					}
+					System.out.printf("검색하신 %s 학생은 1분단 %d번째 줄 %s에 있습니다.",
+							name, i+1, col);
+					flag = false;
+					break;
+				}
+				if(arr2[i][x].equals(name)) {
+					if(x==1) {
+						col = "오른쪽";
+					}
+					System.out.printf("검색하신 %s 학생은 2분단 %d번째 줄 %s에 있습니다.",
+							name, i+1, col);
+					flag = false;
+					break;
+				}
+			}
+		}
+		if(flag) {
+			System.out.println("존재하지 않습니다.");
+		}
+	}
+	
+		
+	
+	public void practice23() {
+//		String변수 = Integer.toString(int변수);
+		
+		String[][] arr = new String[6][6];
+		
+		int count = 0;
+		int count2 = 0;
+		
+		for(int i=0; i<arr.length; i++) {
+			for(int x=0; x<arr[i].length; x++) {
+				if(i==0 && x>0) {
+					arr[i][x] = Integer.toString(count);
+					count++;	
+				} else if(i>0 && x==0) {
+					arr[i][x] = Integer.toString(count2);
+					count2++;
+				} else {
+					arr[i][x] = " ";
+				}
+				
+				
+				}
+				
+			}	
+			
+		System.out.print("행 인덱스 입력: ");
+		int rowIndex = sc.nextInt();
+		
+		System.out.print("열 인덱스 입력: ");
+		int colIndex = sc.nextInt();
+		
+		arr[rowIndex+1][colIndex+1] = "X";
+		
+		for(int i=0; i<arr.length; i++) {
 			for(int x=0; x<arr[i].length; x++) {
 				
-				
+				System.out.print(arr[i][x] + " ");
+				if(x == arr[i].length-1) {
+					System.out.println();
+				}
+					
+			}
+		}
+		
+	}	
+	
+	
+	public void practice24(){
+		
+		String[][] arr = new String[6][6];
+		
+		int count = 0;
+		int count2 = 0;
+		
+			for(int i=0; i<arr.length; i++) {
+				for(int x=0; x<arr[i].length; x++) {
+					if(i==0 && x>0) {
+						arr[i][x] = Integer.toString(count);
+						count++;	
+					} else if(i>0 && x==0) {
+						arr[i][x] = Integer.toString(count2);
+						count2++;
+					} else {
+						arr[i][x] = " ";
+					}
+				}
+			}	
+		int a = 0;
+		
+		while(a != 99) {
+			System.out.print("행 인덱스 입력: ");
+			int rowIndex = sc.nextInt();
+			
+			
+			System.out.print("열 인덱스 입력: ");
+			int colIndex = sc.nextInt();
+			
+			arr[rowIndex+1][colIndex+1] = "X";
+			
+			for(int i=0; i<arr.length; i++) {
+				for(int x=0; x<arr[i].length; x++) {
+					
+					System.out.print(arr[i][x] + " ");
+					if(x == arr[i].length-1) {
+						System.out.println();
+					}
+				}
 			}
 			
+			System.out.print("행 인덱스 입력 >> ");
+			a = sc.nextInt();
+			
+			if(a ==99) {
+				break;
+			}
+		
 		}
-				
-				
-
+		
+		System.out.println("프로그램 종료");
 		
 	}
 	
@@ -691,7 +933,26 @@ public class ArrayPractice {
 	
 	
 	
+	
+	
 }
+				
+
+		
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
 	
 
 
