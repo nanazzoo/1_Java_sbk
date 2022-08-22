@@ -21,7 +21,7 @@ public class UserService {
 		u.setUserAge(userAge);
 		u.setUserGender(userGender);
 		
-		return u; //객체의 시작 주소를 반환
+		return u; //User 객체의 시작 주소를 반환
 	}
 	
 //	로그인 Service
