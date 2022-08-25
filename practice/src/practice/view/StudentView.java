@@ -40,7 +40,7 @@ public class StudentView {
 			case 1 : addStudent(); break;
 			case 2 : selectAll(); break;
 			case 3 : updateStudent(); break;
-			case 4 :  break;
+			case 4 : removeStudent(); break;
 			case 5 :  break;
 			case 6 :  break;
 			case 0 : System.out.println("프로그램 종료"); break;
@@ -57,6 +57,9 @@ public class StudentView {
 		
 		
 	}
+
+
+
 
 
 
@@ -137,6 +140,24 @@ public class StudentView {
 		
 	}
 
+	
+	private void removeStudent() {
+		
+		System.out.println("[학생 정보 제거]");
+		
+		System.out.print("인덱스: ");
+		int idx = sc.nextInt();
+		sc.nextLine();
+		
+		Student s = service.removeStudent(idx);
+		
+		if(s == null) {
+			System.out.println("인덱스 불일치");
+		} else {
+			System.out.println("제거 완료");
+		}
+		
+	}
 	
 	
 	

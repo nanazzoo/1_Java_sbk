@@ -17,14 +17,18 @@ public class StudentService {
 		
 	}
 
+	
+	
 	public List<Student> getStdList() {
 		
 		return stdList;
 	}
+	
+	
 
 	public boolean updateStudent(int idx, String address, int score) {
 		
-		if(idx<0 || idx<=stdList.size()) {
+		if(idx<0 || idx>=stdList.size()) {
 			return false;
 		} else {
 			stdList.get(idx).setAddress(address);
@@ -33,6 +37,17 @@ public class StudentService {
 		}
 		
 		
+	}
+
+
+
+	public Student removeStudent(int idx) {
+			
+		if(idx<0 || idx>=stdList.size()) {
+			return null;
+		} else {
+			return stdList.remove(idx);
+		}
 	}
 
 }
