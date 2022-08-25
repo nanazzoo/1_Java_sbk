@@ -5,18 +5,7 @@ import java.util.List;
 
 import edu.kh.collection.model.vo.Student;
 
-/**
- * @author user1
- *
- */
-/**
- * @author user1
- *
- */
-/**
- * @author user1
- *
- */
+
 public class StudentService {
 	
 //	부모 타입 참조 변수 List
@@ -116,6 +105,47 @@ public class StudentService {
 		
 		
 	}
+
+
+	/** 일치하는 이름 검색
+	 * @param name
+	 * @return resultList
+	 */
+	public List<Student> selectStudent1(String name) {
+		
+		List<Student> resultList = new ArrayList<Student>();
+		
+		for(Student s : stdList) {
+			if(s.getName().equals(name)) {
+				resultList.add(s);
+			}
+		}
+		
+		return resultList;
+	}
+	
+	
+	/** 포함하는 이름 검색
+	 * @param name
+	 * @return resultList
+	 */
+	public List<Student> selectStudent2(String name) {
+		
+		List<Student> resultList = new ArrayList<Student>();
+		
+		for(Student s : stdList) {
+			
+//			검색한 이름이 학생 이름에 포함되어 있는 경우
+			if(s.getName().contains(name)) {
+//				String.contains(값): 문자열에 값으 포함되어 있으면 true
+				resultList.add(s);
+			}
+		}
+		
+		return resultList;
+	}
+
+
 	
 	
 	
