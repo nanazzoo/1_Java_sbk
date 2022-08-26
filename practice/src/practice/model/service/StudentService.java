@@ -8,6 +8,12 @@ import practice.model.vo.Student;
 public class StudentService {
 	
 	private List<Student> stdList = new ArrayList<Student>();
+	
+	public StudentService() {
+		stdList.add(new Student("홍길동", 18, "서울시 도봉구", 'M', 80));
+		stdList.add(new Student("신보경", 30, "서울시 중구", 'F', 90));
+		stdList.add(new Student("김영희", 17, "서울시 강남구", 'F', 60));
+	}
 
 	public boolean addStudent(String name, int age, String address, char gender, int score) {
 		
@@ -50,4 +56,32 @@ public class StudentService {
 		}
 	}
 
+	public List<Student> searchByName(String input) {
+		
+		List<Student> resultList = new ArrayList<>();
+		
+		for(Student s : stdList) {
+			if(s.getName().equals(input)) {
+				resultList.add(s);
+			}
+		}
+		
+		return resultList;
+	}
+
+public List<Student> searchByName2(String input) {
+		
+		List<Student> resultList = new ArrayList<>();
+		
+		for(Student s : stdList) {
+			if(s.getName().contains(input)) {
+				resultList.add(s);
+			}
+		}
+		
+		return resultList;
+	}
+
+	
+	
 }
