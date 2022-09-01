@@ -52,6 +52,7 @@ public class SetService {
 //		   - 컬렉션에서 제공하는 컬렉션 객체 반복 접근자
 //		   - 컬렉션에 저장된 객체를 임의의 순서로 하나씩 꺼내는 역할
 		
+		
 		Iterator<String> it = set.iterator();
 		
 //		Set.iterator
