@@ -20,7 +20,7 @@ public class EmployeeViewImpl implements EmployeeView {
 	@Override
 	public void displayMenu() {
 		 int input = 0;
-		 
+//		 사원 관리 프로그램 메뉴 입력 창
 		 do {
 			 try {
 				System.out.println("---------------------------------------------------------");
@@ -44,11 +44,11 @@ public class EmployeeViewImpl implements EmployeeView {
 				case 1: addEmployee(); break;
 				case 2: selectAll(); break;
 				case 3: selectEmpId(); break;
-				case 4:  break;
-				case 5:  break;
-				case 6:  break;
-				case 7:  break;
-				case 8:  break;
+				case 4: updateEmployee(); break;
+				case 5: deleteEmployee(); break;
+				case 6: selectDepartment(); break;
+				case 7: selectSalary(); break;
+				case 8: departmentalSalary(); break;
 				case 0: System.out.println("<프로그램 종료>"); break;
 				default: System.out.println("메뉴에 표시된 번호만 입력해주세요");
 				}
@@ -92,9 +92,11 @@ public class EmployeeViewImpl implements EmployeeView {
 		System.out.print("급여: ");
 		int salary = sc.nextInt();
 		
+//		입력받은 정보로 새로운 사원 생성
 		Employee emp = new Employee(empName, empNo, email, phone, departmentTitle, jobName, salary);
-		
-		if(service.addEmployee(emp)) {
+
+//		생성한 사원의 정보를 service.addEmployee에 전달
+		if(service.addEmployee(emp)) { // 반환값이 true이면 
 			System.out.println("사원 정보 등록 완료");
 		} else {
 			System.out.println("사원 정보 등록 실패");
@@ -104,7 +106,8 @@ public class EmployeeViewImpl implements EmployeeView {
 	@Override
 	public void selectAll() {
 		System.out.println("<전체 사원 정보 조회>");
-		printAll(service.selectAll());
+//		사원 리스트 출력 메서드 실행
+		printAll(service.selectAll()); //반환값 = empLIst
 	}
 
 	@Override

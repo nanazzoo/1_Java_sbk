@@ -23,8 +23,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public boolean addEmployee(Employee emp) {
+		//받아온 사원 정보에 empID값 추가
 		emp.setEmpId(empIdCount++);
 		return empList.add(emp);
+//		empList에 사원 정보 추가 및 boolean값 반환
 	}
 	
 
